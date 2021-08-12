@@ -1,0 +1,52 @@
+{%extends 'base.html'%}
+{% block body %}
+
+<style>
+    form{
+        height: 8vh;
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-direction: column;
+    }
+    .wrap{
+        width: 50vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .form-label{
+        width: 50v;
+    }
+</style>
+<div class="container">
+    <h3 class="text-center my-4">Email Registration to ReVe</h3>
+    <form method="post" action="/">
+        {% csrf_token %}
+        <div class="wrap">
+            <div class="mb-3">
+                <span>Name</span>
+                <label value="" for="exampleInputEmail1"class="form-label">{{form.name}}</label>
+              </div>
+            <div class="mb-3">
+                <span>Age</span>
+                <label for="exampleInputEmail1" class="form-label">{{form.age}}</label>
+            
+              </div>
+            <div class="mb-3">
+                <span>Email Address</span>
+                <label for="exampleInputEmail1" class="form-label">{{form.email}}</label>
+                
+              </div>
+              <div class="mb-3">
+                  <span>Tell us about yourself</span>
+                <label for="exampleInputPassword1" class="form-label">{{form.description}}</label>
+                
+            </div>
+              <button type="submit" class="btn btn-primary">Subscribe</button>
+        </div>
+      </form>
+</div>
+
+{% endblock %}
